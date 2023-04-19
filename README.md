@@ -3,7 +3,7 @@
 > *status*: currently stable, writing documentation
 
 
-# drmon
+# drmon [pastebin up to date]
 monitor and failsafe automation for your draconic reactor
 
 ### what is this
@@ -47,7 +47,7 @@ you can find a very well made youtube tutorial on how to set this up [here](http
 * install this code via running the install script using these commands :
 
 ```
-> pastebin get Ls1Wg3QQ install
+> pastebin get DuGEErb3 install
 > install
 ```
 * modify `startup` if you wish to configure/alter any variables mentioned in the feature list, you'll find them at the top of the file
