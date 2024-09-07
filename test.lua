@@ -1,3 +1,16 @@
+
+function periphSearch(type)
+    local names = peripheral.getNames()
+    local i, name
+    for i, name in pairs(names) do
+        if peripheral.getType(name) == type then
+            return peripheral.wrap(name)
+        end
+    end
+    return null
+end
+ 
+
 --peripheral config
 local sideGateOut = "top"
 local sideGateIn = periphSearch("flow_gate")
@@ -127,17 +140,6 @@ function setupPeripherals()
     gateOut.setFlowOverride(0)
     
     print("Done!")
-end
- 
-function periphSearch(type)
-    local names = peripheral.getNames()
-    local i, name
-    for i, name in pairs(names) do
-        if peripheral.getType(name) == type then
-            return peripheral.wrap(name)
-        end
-    end
-    return null
 end
  
 function clickListener()
