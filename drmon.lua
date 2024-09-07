@@ -109,30 +109,30 @@ function buttons()
         end
 
         -- Match Output and Generation
-        -- if yPos == 8 and xPos == 14 then
+        if yPos == 8 and xPos == 14 then
             fluxgate.setFlowOverride(ri.generationRate)
-        -- end
+        end
 
         -- output gate controls
         -- 2-4 = -1000, 6-9 = -10000, 10-12,8 = -100000
         -- 17-19 = +1000, 21-23 = +10000, 25-27 = +100000
-        -- if yPos == 8 then
-        --     local cFlow = fluxgate.getFlow()
-        --     if xPos >= 2 and xPos <= 4 then
-        --         cFlow = cFlow - 1000
-        --     elseif xPos >= 6 and xPos <= 9 then
-        --         cFlow = cFlow - 10000
-        --     elseif xPos >= 10 and xPos <= 12 then
-        --         cFlow = cFlow - 100000
-        --     elseif xPos >= 17 and xPos <= 19 then
-        --         cFlow = cFlow + 100000
-        --     elseif xPos >= 21 and xPos <= 23 then
-        --         cFlow = cFlow + 10000
-        --     elseif xPos >= 25 and xPos <= 27 then
-        --         cFlow = cFlow + 1000
-        --     end
-        --     fluxgate.setFlowOverride(cFlow)
-        -- end
+        if yPos == 8 then
+            local cFlow = fluxgate.getFlow()
+            if xPos >= 2 and xPos <= 4 then
+                cFlow = cFlow - 1000
+            elseif xPos >= 6 and xPos <= 9 then
+                cFlow = cFlow - 10000
+            elseif xPos >= 10 and xPos <= 12 then
+                cFlow = cFlow - 100000
+            elseif xPos >= 17 and xPos <= 19 then
+                cFlow = cFlow + 100000
+            elseif xPos >= 21 and xPos <= 23 then
+                cFlow = cFlow + 10000
+            elseif xPos >= 25 and xPos <= 27 then
+                cFlow = cFlow + 1000
+            end
+            fluxgate.setFlowOverride(cFlow)
+        end
 
         -- input gate controls
         -- 2-4 = -1000, 6-9 = -10000, 10-12,8 = -100000
