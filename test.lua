@@ -1,19 +1,5 @@
-
-function periphSearch(type)
-    local names = peripheral.getNames()
-    local i, name
-    for i, name in pairs(names) do
-        if peripheral.getType(name) == type then
-            return peripheral.wrap(name)
-        end
-    end
-    return null
-end
- 
-
 --peripheral config
-local sideGateOut = "top"
-local sideGateIn = periphSearch("flow_gate")
+local sideGateOut = "right"
  
 --output multiplier: set by modpack (default = 1.0), change this to the value of draconic evolution config (!!!not tested yet!!!)
 local outputMultiplier = 1.0
@@ -92,6 +78,17 @@ function isEmergency()
     currentEmergency = safeMode and not (info.temperature < 2000.0) and (info.status == "running" or info.status == "online" or info.status == "stopping") and (info.temperature > defaultTemp + maxOvershoot or currentField < 0.004 or currentFuel < minFuel)
     return currentEmergency
 end
+
+function periphSearch(type)
+    local names = peripheral.getNames()
+    local i, name
+    for i, name in pairs(names) do
+        if peripheral.getType(name) == type then
+            return peripheral.wrap(name)
+        end
+    end
+    return null
+end
  
 function calcInflow(targetStrength, fieldDrainRate)
     return fieldDrainRate / (1.0 - targetStrength)
@@ -112,7 +109,7 @@ function setupPeripherals()
 
     print("Setup peripherals...")
     reactor = periphSearch("draconic_reactor")
-    gateIn = peripheral.wrap(sideGateIn)
+    gateIn = periphSearch("flow_gate")
     gateOut = peripheral.wrap(sideGateOut)
     
     if reactor == null then
